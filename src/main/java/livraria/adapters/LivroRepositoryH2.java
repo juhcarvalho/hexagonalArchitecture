@@ -50,6 +50,7 @@ public class LivroRepositoryH2 implements LivroRepository {
             while (rs.next()) {
                 System.out.println("livraria.Livro encontrado!");
                 livro = new Livro(rs.getLong("id"), rs.getString("titulo"), rs.getString("autor"), rs.getInt("anoPublicacao"));
+                System.out.println(livro.toString());
             }
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
@@ -67,6 +68,7 @@ public class LivroRepositoryH2 implements LivroRepository {
                 livros.add(new Livro(rs.getLong("id"), rs.getString("titulo"), rs.getString("autor"), rs.getInt("anoPublicacao")));
             }
             System.out.println(livros.size());
+            livros.forEach(System.out::println);
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
         }
