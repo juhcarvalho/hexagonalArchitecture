@@ -1,6 +1,7 @@
 package livraria;
 
 import livraria.adapters.in.LivroController;
+import livraria.infra.EmailSender;
 import livraria.adapters.out.LivroRepositoryH2;
 import livraria.infra.DbConnection;
 import livraria.model.Livro;
@@ -16,6 +17,7 @@ public class Main {
         try {
             LivroRepositoryH2 repository = new LivroRepositoryH2(conn);
             LivroController controller = new LivroController(repository);
+
 
             int option = 0;
             do {
@@ -35,6 +37,7 @@ public class Main {
                         System.out.println("Digite o ano de publicação");
                         int anoPublicacao = scanner.nextInt();
                         controller.cadastrarLivro(new Livro(titulo, autor, anoPublicacao));
+                        EmailSender.sendEmail("jucarvalho@outlook.com.br", "Cadastro realizado", "Olá, seu cadastro foi concluído com sucesso!");
                     }
                     case 2 -> {
                         System.out.println("Digite o id");
@@ -48,7 +51,6 @@ public class Main {
                         livros.forEach(System.out::println);
                     }
                 }
-
             } while(option != 0);
 
             conn.close();
