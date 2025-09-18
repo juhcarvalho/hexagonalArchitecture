@@ -3,6 +3,7 @@ package livraria;
 import livraria.adapters.LivroController;
 import livraria.adapters.LivroRepositoryH2;
 import livraria.infra.ConfigLoader;
+import livraria.model.Livro;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,13 +30,24 @@ public class Main {
 
                 switch (option) {
                     case 1 -> {
-                        controller.cadastrarLivro();
+                        System.out.println("Titulo:");
+                        String titulo = scanner.next();
+                        System.out.println("Autor:");
+                        String autor = scanner.next();
+                        System.out.println("Digite o ano de publicação");
+                        int anoPublicacao = scanner.nextInt();
+                        controller.cadastrarLivro(new Livro(titulo, autor, anoPublicacao));
                     }
                     case 2 -> {
-                        Livro livro = controller.buscarLivroPorId();
+                        System.out.println("Digite o id");
+                        Long id = (long) scanner.nextInt();
+                        Livro livro = controller.buscarLivroPorId(id);
+                        System.out.println(livro.toString());
                     }
                     case 3 -> {
                         List<Livro> livros = controller.listarTodosLivros();
+                        System.out.println("Total de registros: " + livros.size());
+                        livros.forEach(System.out::println);
                     }
                 }
 

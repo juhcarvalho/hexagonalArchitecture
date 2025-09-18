@@ -1,6 +1,6 @@
 package livraria.adapters;
 
-import livraria.Livro;
+import livraria.model.Livro;
 import livraria.LivroService;
 
 import java.util.List;
@@ -14,19 +14,11 @@ public class LivroController {
         this.service = new LivroService(repository);
     }
 
-    public void cadastrarLivro() {
-        System.out.println("Titulo:");
-        String titulo = scanner.next();
-        System.out.println("Autor:");
-        String autor = scanner.next();
-        System.out.println("Digite o id");
-        int anoPublicacao = scanner.nextInt();
-
-        service.cadastrarLivro(new Livro(titulo, autor, anoPublicacao));
+    public void cadastrarLivro(Livro livro) {
+        service.cadastrarLivro(livro);
     }
-    public Livro buscarLivroPorId() {
-        System.out.println("Digite o id");
-        return service.buscarLivroPorId((long) scanner.nextInt());
+    public Livro buscarLivroPorId(Long id) {
+        return service.buscarLivroPorId(id);
     }
     public List<Livro> listarTodosLivros() {
         return service.listarTodosLivros();

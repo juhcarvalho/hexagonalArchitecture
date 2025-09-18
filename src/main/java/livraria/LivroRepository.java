@@ -1,5 +1,7 @@
 package livraria;
 
+import livraria.model.Livro;
+
 import java.util.List;
 
 public interface LivroRepository {

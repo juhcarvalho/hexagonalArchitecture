@@ -1,6 +1,6 @@
 package livraria.adapters;
 
-import livraria.Livro;
+import livraria.model.Livro;
 import livraria.LivroRepository;
 
 import java.sql.*;
@@ -48,9 +48,8 @@ public class LivroRepositoryH2 implements LivroRepository {
             System.out.println("buscarLivroPorId..." + id.toString());
             ResultSet rs = stmt.executeQuery("SELECT * FROM livro WHERE id=" + id.toString());
             while (rs.next()) {
-                System.out.println("livraria.Livro encontrado!");
+                System.out.println("Livro encontrado!");
                 livro = new Livro(rs.getLong("id"), rs.getString("titulo"), rs.getString("autor"), rs.getInt("anoPublicacao"));
-                System.out.println(livro.toString());
             }
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
@@ -67,8 +66,6 @@ public class LivroRepositoryH2 implements LivroRepository {
             while (rs.next()) {
                 livros.add(new Livro(rs.getLong("id"), rs.getString("titulo"), rs.getString("autor"), rs.getInt("anoPublicacao")));
             }
-            System.out.println(livros.size());
-            livros.forEach(System.out::println);
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
         }

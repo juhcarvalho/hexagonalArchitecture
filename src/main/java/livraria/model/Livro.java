@@ -1,4 +1,4 @@
-package livraria;
+package livraria.model;
 
 public class Livro {
     private Long id;
@@ -53,11 +53,11 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "livraria.Livro {\n" +
-                "  id=" + id + "\n" +
-                " titulo='" + titulo + "'\n" +
-                " autor='" + autor + "'\n" +
-                " anoPublicacao=" + anoPublicacao + "\n" +
+        return "Livro {" +
+                " id=" + id + '\'' +
+                " titulo='" + titulo + '\'' +
+                " autor='" + autor + '\'' +
+                " anoPublicacao=" + anoPublicacao + '\'' +
                 "}";
     }
 }
