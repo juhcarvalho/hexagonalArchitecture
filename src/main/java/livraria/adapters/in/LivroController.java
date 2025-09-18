@@ -1,5 +1,6 @@
-package livraria.adapters;
+package livraria.adapters.in;
 
+import livraria.adapters.out.LivroRepositoryH2;
 import livraria.model.Livro;
 import livraria.LivroService;
 

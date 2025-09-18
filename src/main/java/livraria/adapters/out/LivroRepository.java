@@ -1,4 +1,4 @@
-package livraria;
+package livraria.adapters.out;
 
 import livraria.model.Livro;
 

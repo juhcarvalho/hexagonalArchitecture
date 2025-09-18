@@ -1,6 +1,6 @@
 package livraria;
 
-import livraria.adapters.LivroRepositoryH2;
+import livraria.adapters.out.LivroRepositoryH2;
 import livraria.model.Livro;
 
 import java.util.List;

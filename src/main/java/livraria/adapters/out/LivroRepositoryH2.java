@@ -1,7 +1,6 @@
-package livraria.adapters;
+package livraria.adapters.out;
 
 import livraria.model.Livro;
-import livraria.LivroRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
